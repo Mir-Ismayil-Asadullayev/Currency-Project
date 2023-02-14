@@ -130,3 +130,8 @@ input {
     font-weight: 400;
     font-size: 12px;
 }
+
+.left-side,
+.right-side {
+    width: min-content;
+}

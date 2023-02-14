@@ -3,7 +3,7 @@ import { LeftCurrency, LeftInput, RightCurrency, RightInput, setleftCurrent, set
 
 LeftCurrency.forEach(item => {
     item.addEventListener("click", (e) => {
-        selector(Leftcurrency, e);
+        selector(LeftCurrency, e);
         setleftCurrent(e.target.innerText);
         inputFetch(LeftInput, RightInput);
     });
@@ -11,7 +11,7 @@ LeftCurrency.forEach(item => {
 
 RightCurrency.forEach(item => {
     item.addEventListener("click", (e) => {
-        selector(Rightcurrency, e);
+        selector(RightCurrency, e);
         setrightCurrent(e.target.innerText);
         inputFetch(RightInput, LeftInput);
     });
