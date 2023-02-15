@@ -1,8 +1,8 @@
 export default async function fetchCurrency(leftCurrency, rightCurrency) {
     if (leftCurrency === rightCurrency) {
         return {
-            left: 0,
-            right: 0
+            left: 1,
+            right: 1
         };
     } else {
         let resLeft = await fetch(`https://api.exchangerate.host/convert?from=${leftCurrency}&to=${rightCurrency}`);
