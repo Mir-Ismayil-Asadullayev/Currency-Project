@@ -17,10 +17,12 @@ export const windowOnLoad = window.onload = () => {
         .catch(() => alert("It seems we have a problem with network or another issue. Try to reload page, or come back later"));
 }
 
-export const inputFetch = (inputFirst, inputSecond) => {
+export const inputFetch = (inputFirst, inputSecond, side) => {
     fetchCurrency(vars.getleftCurrent(), vars.getrightCurrent())
         .then(res => {
-            inputFirst.value = Number(inputSecond.value * res.left).toFixed(4);
+            inputFirst.value = inputSecond.value * (side === "left" ? res.left : res.right);
+            if ([...inputFirst.value].length > 6) inputFirst.value = Number(inputFirst.value).toFixed(4)
+            if (inputFirst.value === "0.0000") inputFirst.value = 0;
             vars.LeftOneResult.innerText = res.left + " " + vars.getrightCurrent();
             vars.LeftSecondResult.innerText = vars.getleftCurrent();
             vars.RightOneResult.innerText = res.right + " " + vars.getleftCurrent();
